@@ -34,6 +34,16 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', hello.view);
+exports.view = function(req, res){
+	var nameToShow = req.params.userName;
+	if (nameToShow === undefined){
+		nameToShow = 'World';
+	}
+	console.log("Name is " + nameToShow)
+	res.render('index', {
+		'name': ''.
+	});
+};
 
 app.get('/hello/:userName', hello.view);
 
